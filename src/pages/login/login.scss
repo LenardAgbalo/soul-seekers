@@ -1,0 +1,61 @@
+body {
+  margin: 0px;
+}
+
+.login {
+  height: 100vh;
+  background-color: rgba(190, 168, 126, 0.849);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .card {
+    border-radius: 10px 0px 0px 10px;
+    width: 50%;
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    min-height: 600px;
+
+    .left {
+      flex: 1;
+      border-radius: 10px 0px 0px 10px;
+      background: linear-gradient(
+          rgba(39, 11, 96, 0.5),
+          (rgba(134, 56, 56, 0.5))
+        ),
+        url("https://scontent.fmnl17-5.fna.fbcdn.net/v/t39.30808-6/377947255_626725929642176_590542605444669025_n.jpg?stp=cp6_dst-jpg&_nc_cat=102&ccb=1-7&_nc_sid=5614bc&_nc_eui2=AeF9cDY8RW8YwS-ACTpEMHEhhrB6sT29XGmGsHqxPb1caYjn4X88wL3o3CExfc9aGfvXukpXve4ko--ZSeGGFu-l&_nc_ohc=cF7EMwcSJbIAX8gpcRN&_nc_ht=scontent.fmnl17-5.fna&oh=00_AfBrWP9UxxFcix-MiRepc0slYaIj6vw6azU1KhtQASG69Q&oe=65082553")
+          center;
+      background-size: cover;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      color: white;
+
+      h1 {
+        font-size: 100px;
+        line-height: 100px;
+      }
+      p {
+      }
+      span {
+      }
+      button {
+      }
+    }
+    .right {
+      flex: 1;
+      h1 {
+      }
+      form {
+      }
+      input {
+      }
+      button {
+      }
+    }
+  }
+}
+
+//https://www.youtube.com/watch?v=FweHcYHkt9A&ab_channel=LamaDev
