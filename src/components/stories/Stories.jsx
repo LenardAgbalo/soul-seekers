@@ -29,6 +29,11 @@ const Stories = () => {
       name: "John Lenard",
       img: "https://static.nationalgeographic.co.uk/files/styles/image_3200/public/tryitnow_GettyImages-1127515284_HR.jpg?w=1600&h=900",
     },
+    {
+      id: 5,
+      name: "John Lenard",
+      img: "https://static.nationalgeographic.co.uk/files/styles/image_3200/public/tryitnow_GettyImages-1127515284_HR.jpg?w=1600&h=900",
+    },
   ];
   return (
     <div className="stories">
@@ -38,7 +43,7 @@ const Stories = () => {
         <button>+</button>
       </div>
       {stories.map((story) => (
-        <div className="story">
+        <div className="story" key={story.id}>
           <img src={story.img} alt="" />
           <span>{story.name}</span>
         </div>

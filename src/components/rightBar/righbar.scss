@@ -2,7 +2,7 @@
 
 .rightBar {
   @include themify($theme) {
-    flex: 2;
+    flex: 3;
     font-family: "Anton", sans-serif;
     position: sticky;
     top: 70px;
