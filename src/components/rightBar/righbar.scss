@@ -11,6 +11,13 @@
     // box-shadow: 0 10px 10px -5px #000;
     // clip-path: inset(0px 0px 0px -15px);
     overflow: scroll;
+    @include mobile {
+      display: none;
+    }
+
+    @include tablet {
+      display: none;
+    }
     &::-webkit-scrollbar {
       display: none;
     }

@@ -1,5 +1,6 @@
 @import "../../style.scss";
 .comments {
+  padding-top: 20px;
   @include themify($theme) {
     font-family: "Anton", sans-serif;
     img {
@@ -9,7 +10,6 @@
       object-fit: cover;
     }
     .write {
-      padding-top: 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
