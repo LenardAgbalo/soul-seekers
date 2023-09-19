@@ -42,12 +42,12 @@ function App() {
     const { currentUser } = useContext(AuthContext);
     const storedUserData = JSON.parse(localStorage.getItem("user"));
 
-    // Check if storedUserData is an array and contains a user with id 1
-    const userWithId1 =
-      Array.isArray(storedUserData) &&
-      storedUserData.find((user) => user.id === 1);
-
-    if (!currentUser || userWithId1 === undefined) {
+    // Check if currentUser is not logged in or storedUserData doesn't contain user with id 1
+    if (
+      !currentUser ||
+      !Array.isArray(storedUserData) ||
+      !storedUserData.some((user) => user.id === 1)
+    ) {
       return <Navigate to="/login" />;
     }
     return children;
