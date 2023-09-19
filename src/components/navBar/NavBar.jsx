@@ -31,7 +31,7 @@ const NabVar = () => {
     <div className="navbar">
       <div className="left">
         <Link to="/" style={{ textDecoration: "none" }}>
-          <span>Social Media</span>
+          <span>Infinity Vibe</span>
         </Link>
         <HomeOutlinedIcon />
         {darkMode ? (
