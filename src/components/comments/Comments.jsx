@@ -1,10 +1,21 @@
-import { useContext } from "react";
+// import { useContext } from "react";
 import "./comments.scss";
-import { AuthContext } from "../../context/authContext";
+// import { AuthContext } from "../../context/authContext";
+import React, { useEffect, useState } from "react";
 
 const Comments = () => {
-  const { currentUser } = useContext(AuthContext);
+  // const { currentUser } = useContext(AuthContext);
+  const [userData, setUserData] = useState(null);
+  useEffect(() => {
+    // Retrieve user data from local storage
+    const storedUsers = JSON.parse(localStorage.getItem("user"));
 
+    // Find the user with userId 1
+    const user = storedUsers.find((u) => u.userId === 1);
+
+    // Set the user data in state
+    setUserData(user);
+  }, []);
   //Temporary
 
   const comments = [
@@ -21,7 +32,7 @@ const Comments = () => {
   return (
     <div className="comments">
       <div className="write">
-        <img src={currentUser.profilePicture} alt="" />
+        <img src={userData ? userData.profilePicture : ""} alt="" />
         <input type="text" placeholder="Write a comment" />
         <button>Send</button>
       </div>

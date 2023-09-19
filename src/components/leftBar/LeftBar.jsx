@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./leftbar.scss";
 import Friends from "../../assets/friends.png";
 import Groups from "../../assets/group.png";
@@ -9,21 +10,47 @@ import Gaming from "../../assets/gaming.png";
 import Gallery from "../../assets/gallery.png";
 import Videos from "../../assets/video.png";
 import Messages from "../../assets/message.png";
-import Fund from "../../assets/fund.png";
-import Courses from "../../assets/course.png";
-import Tutorial from "../../assets/tutorial.png";
-import { useContext } from "react";
-import { AuthContext } from "../../context/authContext";
+// import Fund from "../../assets/fund.png";
+// import Courses from "../../assets/course.png";
+// import Tutorial from "../../assets/tutorial.png";
+// import { useContext } from "react";
+// import { AuthContext } from "../../context/authContext";
+import React, { useEffect, useState } from "react";
 
 const LeftBar = () => {
-  const { currentUser } = useContext(AuthContext);
+  // const { currentUser } = useContext(AuthContext);
+  const [userData, setUserData] = useState(null);
+  useEffect(() => {
+    // Retrieve user data from local storage
+    const storedUsers = JSON.parse(localStorage.getItem("user"));
+
+    // Find the user with userId 1
+    const user = storedUsers.find((u) => u.userId === 1);
+
+    // Set the user data in state
+    setUserData(user);
+  }, []);
   return (
     <div className="leftBar">
       <div className="container">
         <div className="menu">
           <div className="user">
-            <img src={currentUser.profilePicture} alt="user" />
-            <span>{currentUser.name}</span>
+            {/* <img src={currentUser.profilePicture} alt="user" />
+            <span>{currentUser.name}</span> */}
+            <img src={userData ? userData.profilePicture : ""} alt="user" />
+
+            <span>
+              <div className="">
+                <Link
+                  to={userData ? `/profile/${userData.userId}` : "/"}
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  <span className="name">
+                    {userData ? userData.name : "Loading..."}
+                  </span>
+                </Link>
+              </div>
+            </span>
           </div>
           <div className="item">
             <img src={Friends} alt="" />

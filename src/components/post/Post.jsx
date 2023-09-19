@@ -1,25 +1,36 @@
 import "./post.scss";
-import { FavoriteBorderOutlined } from "@mui/icons-material";
-import { FavoriteOutlined } from "@mui/icons-material";
-import { TextsmsOutlined } from "@mui/icons-material";
-import { ShareOutlined } from "@mui/icons-material";
-import { MoreHoriz } from "@mui/icons-material";
+import {
+  FavoriteBorderOutlined,
+  FavoriteOutlined,
+  TextsmsOutlined,
+  ShareOutlined,
+} from "@mui/icons-material";
+
 import { Link } from "react-router-dom";
 import Comments from "../comments/Comments";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import RemovePost from "../deletePost/RemovePost"; // Adjust the import path as needed
+import EditPost from "../editPost/EditPost";
 
-const Post = ({ post }) => {
+const Post = () => {
   const [commentOpen, setCommentOpen] = useState(false);
+  const [liked, setLiked] = useState(false); // Use a single liked state
+  const [posts, setPosts] = useState([]);
 
-  //Temporary
-  const liked = false;
+  // Step 1: Retrieve the data from local storage
+  useEffect(() => {
+    const localData = JSON.parse(localStorage.getItem("posts")) || [];
+    setPosts(localData);
+  }, []);
 
-  return (
-    <div className="post">
+  // You need to map over your posts and render them here
+  const renderedPosts = posts.map((post, index) => (
+    <div className="post" key={index}>
+      {/* <UpdatingPost /> */}
       <div className="container">
         <div className="user">
           <div className="userInfo">
-            <img src={post.profilePicture} alt="" />
+            <img src={post.profilePicture} alt={post.userName} />
             <div className="details">
               <Link
                 to={`/profile/${post.userId}`}
@@ -30,20 +41,23 @@ const Post = ({ post }) => {
               <span className="date">1 min ago</span>
             </div>
           </div>
-          <MoreHoriz />
+          <div className="actions">
+            <EditPost className="item" idPost={post.idPost} />
+            <RemovePost className="item" idPost={post.idPost} />
+          </div>
         </div>
         <div className="content">
           <p>{post.desc}</p>
           <img src={post.img} alt="" />
         </div>
         <div className="info">
-          <div className="item">
+          <div className="item" onClick={() => setLiked(!liked)}>
             {liked ? <FavoriteOutlined /> : <FavoriteBorderOutlined />}
-            12 Likes
+            {liked ? "13 Likes" : "12 Likes"}
           </div>
           <div className="item" onClick={() => setCommentOpen(!commentOpen)}>
             <TextsmsOutlined />
-            12 Comments
+            {commentOpen ? "13 Comments" : "12 Comments"}
           </div>
           <div className="item">
             <ShareOutlined /> 12 Share
@@ -52,7 +66,9 @@ const Post = ({ post }) => {
         {commentOpen && <Comments />}
       </div>
     </div>
-  );
+  ));
+
+  return <>{renderedPosts}</>;
 };
 
 export default Post;

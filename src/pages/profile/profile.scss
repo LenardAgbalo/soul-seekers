@@ -26,6 +26,8 @@
         right: 0;
         margin: auto;
         top: 200px;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px 0px,
+          rgba(60, 64, 67, 0.15) 0px 2px 2px 1px;
 
         @include mobile {
           top: 100px;
@@ -68,7 +70,7 @@
             flex-wrap: wrap;
           }
           a {
-            color: themed("textColorsoft");
+            color: themed("btn");
           }
         }
         .center {
@@ -94,7 +96,7 @@
               display: flex;
               align-items: center;
               gap: 5px;
-              color: themed("textColorsoft");
+              color: themed("btn");
             }
             span {
               font-size: 12px;
@@ -102,8 +104,8 @@
           }
           button {
             border: none;
-            background-color: #5271ff;
-            color: white;
+            background-color: themed("btn");
+            color: themed("bg");
             padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
@@ -115,7 +117,7 @@
           align-items: center;
           justify-content: flex-end;
           gap: 10px;
-          color: themed("textColorsoft");
+          color: themed("btn");
         }
       }
     }

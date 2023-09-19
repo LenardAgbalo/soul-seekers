@@ -18,7 +18,7 @@ import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/authContext";
 
 function App() {
-  const { currentUser } = useContext(AuthContext);
+  // const { currentUser } = useContext(AuthContext);
   //means they not login yet
 
   const { darkMode } = useContext(DarkModeContext);
@@ -38,13 +38,21 @@ function App() {
       </div>
     );
   };
-  // User Shuodn see new feed if not login- It will direct to login
   const ProtectedRoute = ({ children }) => {
-    if (!currentUser) {
-      return <Navigate to="/login" />; //If no current user they will navigate to login
+    const { currentUser } = useContext(AuthContext);
+    const storedUserData = JSON.parse(localStorage.getItem("user"));
+
+    // Check if storedUserData is an array and contains a user with id 1
+    const userWithId1 =
+      Array.isArray(storedUserData) &&
+      storedUserData.find((user) => user.id === 1);
+
+    if (!currentUser || userWithId1 === undefined) {
+      return <Navigate to="/login" />;
     }
     return children;
   };
+
   const router = createBrowserRouter([
     {
       path: "/",

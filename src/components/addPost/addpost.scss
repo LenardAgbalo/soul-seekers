@@ -1,0 +1,67 @@
+@import "../../style.scss";
+.createPost {
+  @include themify($theme) {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border-radius: 20px;
+    background-color: themed("bg");
+    color: themed("textColor");
+
+    .container {
+      padding: 20px;
+      h2 {
+      }
+      .content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .item {
+          display: flex;
+          flex-direction: column;
+
+          label {
+            font-weight: bold;
+            margin-bottom: 5px;
+          }
+
+          /* Style the input fields */
+          input {
+            outline: none;
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: transparent;
+            color: themed("textColor");
+          }
+          textarea {
+            outline: none;
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: transparent;
+            color: themed("textColor");
+          }
+        }
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: themed("btn");
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 20px;
+      }
+    }
+  }
+}

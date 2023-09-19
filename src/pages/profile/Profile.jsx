@@ -8,18 +8,34 @@ import LanguageIcon from "@mui/icons-material/Language";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { EmailOutlined, Instagram } from "@mui/icons-material";
 import Posts from "../../components/posts/Posts";
+import React, { useEffect, useState } from "react";
+
 const Profile = () => {
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    // Retrieve user data from local storage
+    const storedUsers = JSON.parse(localStorage.getItem("user"));
+
+    // Find the user with userId 1
+    const user = storedUsers.find((u) => u.userId === 1);
+    //
+
+    // Set the user data in state
+    setUserData(user);
+  }, []);
+
   return (
     <div className="profile">
       <div className="images">
         <img
           className="cover"
-          src="https://static.nationalgeographic.co.uk/files/styles/image_3200/public/tryitnow_GettyImages-1127515284_HR.jpg?w=1600&h=900"
+          src="https://i.pinimg.com/originals/3e/2a/f6/3e2af664e061013a3d05aa99fa20c1d4.jpg"
           alt=""
         />
         <img
           className="profilePicture"
-          src="https://static.nationalgeographic.co.uk/files/styles/image_3200/public/tryitnow_GettyImages-1127515284_HR.jpg?w=1600&h=900"
+          src={userData ? userData.profilePicture : ""}
           alt=""
         />
       </div>
@@ -43,7 +59,7 @@ const Profile = () => {
             </a>
           </div>
           <div className="center">
-            <span>Jan Deo</span>
+            <span> {userData ? userData.name : "Loading..."}</span>
             <div className="info">
               <div className="item">
                 <PlaceIcon />
@@ -51,7 +67,7 @@ const Profile = () => {
               </div>
               <div className="item">
                 <LanguageIcon />
-                <span>Lenard.com</span>
+                <span> {userData ? userData.email : "Loading..."}</span>
               </div>
             </div>
             <button>Follow</button>

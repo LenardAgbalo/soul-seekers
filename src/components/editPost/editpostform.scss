@@ -1,0 +1,49 @@
+@import "../../style.scss";
+
+.editpostform {
+  @include themify($theme) {
+    background-color: themed("bgSoft"); /* Light gray background */
+    border-radius: 10px;
+
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    .container {
+      .post {
+        margin-bottom: 20px; /* Spacing between the input fields */
+
+        label {
+          padding: 10px 10px;
+          display: block;
+          font-weight: bold;
+          margin-bottom: 5px; /* Space between labels and inputs */
+        }
+
+        input {
+          padding: 10px;
+          border: themed("border");
+          border-radius: 5px;
+          outline: none;
+          background-color: themed("textColorsoft");
+          color: themed("textColor");
+        }
+      }
+
+      .actions {
+        display: flex;
+        justify-content: space-between; /* Align icons at opposite ends */
+
+        .item {
+          cursor: pointer;
+          font-size: 24px;
+
+          &.close-icon {
+            color: themed("btn-red"); /* Red color for Close icon */
+          }
+
+          &.check-icon {
+            color: themed("btn-follow"); /* Green color for Check icon */
+          }
+        }
+      }
+    }
+  }
+}

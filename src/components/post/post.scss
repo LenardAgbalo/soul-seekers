@@ -16,6 +16,8 @@
           display: flex;
           gap: 20px;
           img {
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px 0px,
+              rgba(60, 64, 67, 0.15) 0px 2px 2px 1px;
             width: 40px;
             height: 40px;
             border-radius: 50%;
@@ -24,22 +26,35 @@
           .details {
             display: flex;
             flex-direction: column;
+            cursor: pointer;
             .name {
-              font-weight: 500;
+              font-weight: bold;
             }
             .date {
               font-style: 12px;
             }
           }
         }
+        .actions {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+        }
+        .item {
+          margin-right: 10px;
+          font-size: 25px;
+        }
       }
+
       .content {
         margin: 20px 0px;
         img {
+          box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px 0px,
+            rgba(60, 64, 67, 0.15) 0px 2px 2px 1px;
           width: 100%;
-          max-height: 500px;
+          max-height: 400px;
           object-fit: cover;
-          margin-top: 20px;
+          margin-top: 10px;
           border-radius: 3px;
         }
       }
@@ -55,6 +70,7 @@
         gap: 10px;
         cursor: pointer;
         font-size: 11px;
+        color: themed("btn");
       }
     }
   }

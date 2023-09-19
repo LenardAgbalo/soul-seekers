@@ -5,14 +5,16 @@ import { useContext } from "react";
 
 const Login = () => {
   const { login } = useContext(AuthContext);
-  const handelLogin = () => {
+
+  const handleLogin = () => {
     login();
   };
+
   return (
     <div className="login">
       <div className="card">
         <div className="left">
-          <h1>Soul Seekers</h1>
+          <h1>Infinity Vibe</h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum quam
             minima perspiciatis nihil autem savoluptatibus quidempiente
@@ -29,9 +31,9 @@ const Login = () => {
           <form action="">
             <input type="text" placeholder="Username" />
             <input type="password" placeholder="Password" />
-            <button className="" onClick={handelLogin}>
-              Login
-            </button>
+            <Link to="/">
+              <button onClick={handleLogin}>Login</button>
+            </Link>
           </form>
         </div>
       </div>
@@ -40,4 +42,3 @@ const Login = () => {
 };
 
 export default Login;
-//https://www.youtube.com/watch?v=FweHcYHkt9A&ab_channel=LamaDev

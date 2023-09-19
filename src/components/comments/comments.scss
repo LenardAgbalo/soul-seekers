@@ -8,6 +8,9 @@
       height: 40px;
       border-radius: 50%;
       object-fit: cover;
+
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 2px 2px 1px;
     }
     .write {
       display: flex;
@@ -27,8 +30,8 @@
       }
       button {
         border: none;
-        background-color: blue;
-        color: white;
+        background-color: themed("btn");
+        color: themed("bgSoft");
         padding: 10px;
         cursor: pointer;
         border-radius: 3px;
