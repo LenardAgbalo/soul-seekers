@@ -2,19 +2,19 @@
 
 .editpostform {
   @include themify($theme) {
-    background-color: themed("bgSoft"); /* Light gray background */
+    background-color: themed("bgSoft");
     border-radius: 10px;
 
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
     .container {
       .post {
-        margin-bottom: 20px; /* Spacing between the input fields */
+        margin-bottom: 20px;
 
         label {
           padding: 10px 10px;
           display: block;
           font-weight: bold;
-          margin-bottom: 5px; /* Space between labels and inputs */
+          margin-bottom: 5px;
         }
 
         input {
@@ -29,18 +29,18 @@
 
       .actions {
         display: flex;
-        justify-content: space-between; /* Align icons at opposite ends */
+        justify-content: space-between;
 
         .item {
           cursor: pointer;
           font-size: 24px;
 
           &.close-icon {
-            color: themed("btn-red"); /* Red color for Close icon */
+            color: themed("btn-red");
           }
 
           &.check-icon {
-            color: themed("btn-follow"); /* Green color for Check icon */
+            color: themed("btn-follow");
           }
         }
       }

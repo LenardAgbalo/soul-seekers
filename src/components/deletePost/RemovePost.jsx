@@ -14,8 +14,6 @@ const RemovePost = ({ idPost }) => {
       // Update the local storage with the updated data
       localStorage.setItem("posts", JSON.stringify(updatedPosts));
 
-      // You can also do any additional actions here if needed
-
       // Reload the page or perform any other necessary updates
       window.location.reload();
     }
