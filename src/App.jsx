@@ -65,21 +65,23 @@ function App() {
       children: [
         {
           path: "/",
-          element: <Home />,
+
+          element: <Home /> /* Render the Newsfeed component */,
         },
+
         {
           path: "/profile/:id",
-          element: <Profile />,
+          element: <Profile /> /* Render the Profile component */,
         },
       ],
     },
     {
       path: "/login",
-      element: <Login />,
+      element: <Login /> /* Render the Login component */,
     },
     {
       path: "/register",
-      element: <Register />,
+      element: <Register /> /* Render the Register component */,
     },
   ]);
   return (

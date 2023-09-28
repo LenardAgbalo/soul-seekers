@@ -55,7 +55,6 @@ const Register = () => {
     // Store the updated user data back in local storage
     localStorage.setItem("user", JSON.stringify(existingUserData));
 
-    // Optional: Display a message to indicate that data was saved
     alert("Form data saved to local storage!");
 
     // Reset the form fields
